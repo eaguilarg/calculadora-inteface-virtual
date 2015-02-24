@@ -9,7 +9,8 @@ public class Calculadora {
 
   
     public static void main(String[] args) {
-       VentanaCalculadora m=new VentanaCalculadora();
+       ControladorVentanaCalculadora m=new ControladorVentanaCalculadora();
+      
        
        m.pack();
        m.setVisible(true);
