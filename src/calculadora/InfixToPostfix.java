@@ -87,5 +87,14 @@ public InfixToPostfix(){
 			result = true;
 		return result;
 	}
+        
+        
+ public static void main(String[] args){
+     InfixToPostfix p=new InfixToPostfix();
+     String z="5 + 3 * 2";
+    
+     System.out.println(p.evaluate(z));
+ }       
+        
 
 }

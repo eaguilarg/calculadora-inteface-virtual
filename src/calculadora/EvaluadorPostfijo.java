@@ -46,7 +46,7 @@ public double EvaluacionPostfijo(String operacion) throws Unchecked{
       operador=lector.charAt(0);
       
       //caso de que sea numero
-      if(operador!='+' && operador!='-' && operador!='*' && operador!='/'){
+      if(operador!='+' && operador!='-' && operador!='*' && operador!='/' || lector.length()>=2){
           pila.push(Double.parseDouble(lector));
           
       } else{
@@ -65,11 +65,13 @@ public double EvaluacionPostfijo(String operacion) throws Unchecked{
                  break;
              case '*':
                  resp=numero*numero2;
+                 break;
              case '/':
                  if(numero2!=0)
                      resp=numero/numero2;
                  else
                      throw new Unchecked("No se puede dividir entre cero");
+                 break;
                                   
          }
          pila.push(resp);
@@ -90,8 +92,9 @@ public static void main(String args[]) throws Unchecked{
     EvaluadorPostfijo e=new EvaluadorPostfijo();
     String operador = "1 8 * 2 * 4 -";  
     String cadena="7 1 + 2 * 4 + ";
+    String cadena2="5 3 2 * +";
 
-    System.out.print("= " + e.EvaluacionPostfijo(cadena)); 
+    System.out.print("= " + e.EvaluacionPostfijo(cadena2)); 
 
     
     

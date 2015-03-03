@@ -78,7 +78,7 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
    }
    public class EscuchaDivision implements ActionListener{
       public void actionPerformed(ActionEvent ae){
-         pantalla.setText(pantalla.getText()+"*");
+         pantalla.setText(pantalla.getText()+"/");
      }
    }
    public class EscuchaParentesisAbre implements ActionListener{
@@ -104,22 +104,25 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
    }
  public class EscuchaIgual implements ActionListener{
       public void actionPerformed(ActionEvent ae){
-         String infijo, postfijo;
+         String postfijo=null;
          double resp;
          EvaluadorPostfijo e=new EvaluadorPostfijo();
          InfixToPostfix e2=new InfixToPostfix();
-         
+         try{
          postfijo=e2.evaluate(pantalla.getText());//evaluate ==infix to postfix
+         }catch(Unchecked c){
+             pantalla.setText("Error");
+         }
          try{
              resp= e.EvaluacionPostfijo(postfijo);
              pantalla.setText(""+resp);
              
          }catch(Unchecked c){
-             pantalla.setText("Error");
+             pantalla.setText(c.toString());
          }
      
      } 
-      pantalla.setText("");   
+        
  }
  
  

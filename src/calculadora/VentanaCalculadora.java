@@ -1,9 +1,6 @@
 
 package calculadora;
 
-
-
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
@@ -21,7 +18,7 @@ public class VentanaCalculadora extends JFrame {
 //atributos
     protected JPanel miPanel;
     protected Border miBorde;
-    protected JButton botonPunto, botonEspacio, botonParentesisAbre, botonParentesisCierra, botonSuma, botonResta, botonMultiplicacion, botonDivision,botonIgual,boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,boton0;
+    protected JButton botonBorrar,botonPunto, botonEspacio, botonParentesisAbre, botonParentesisCierra, botonSuma, botonResta, botonMultiplicacion, botonDivision,botonIgual,boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8,boton9,boton0;
     protected JTextField pantalla;
     protected JLabel blanco;
     
