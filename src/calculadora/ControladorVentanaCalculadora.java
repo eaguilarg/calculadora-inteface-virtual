@@ -9,15 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class ControladorVentanaCalculadora extends VentanaCalculadora {
- public class EscuchaOperacion implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-       
-                       
-           }
-        }
-     
- 
+
  public class EscuchaNumero0 implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -69,6 +61,47 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
          pantalla.setText(pantalla.getText()+"9");
      }
  }
+   public class EscuchaSuma implements ActionListener{
+     public void actionPerformed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"+");
+     }
+   }
+   public class EscuchaResta implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"-");
+     }
+   }
+   public class EscuchaMultiplicacion implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"*");
+     }
+   }
+   public class EscuchaDivision implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"/");
+     }
+   }
+   public class EscuchaParentesisAbre implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"(");
+     }
+   }
+   public class EscuchaParentesisCierra implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+")");
+     }
+   }
+   public class EscuchaPunto implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+".");
+     }
+   }
+   public class EscuchaEspacio implements ActionListener{
+     public void actionPerfomed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+" ");
+     }
+   }
+ 
  
  
  
@@ -87,7 +120,14 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
      boton7.addActionListener(new EscuchaNumero7());
      boton8.addActionListener(new EscuchaNumero8());
      boton9.addActionListener(new EscuchaNumero9());
-     
+     botonSuma.addActionListener(new EscuchaSumar());
+     botonResta.addActionListener(new EscuchaResta());
+     botonMultiplicacion.addActionListener(new EscuchaMultiplicacion());
+     botonDivision.addActionListener(new EscuchaDivision());
+     botonParentesisAbre.addActionListener(new EscuchaParentesisAbre());
+     botonParentesisCierra.addActionListener(new EscuchaParentesisCierra());
+     botonEspacio.addActionListener(new EscuchaEspacio());
+     botonPunto.addActionListener(new EscuchaPunto());
  }
 
     
