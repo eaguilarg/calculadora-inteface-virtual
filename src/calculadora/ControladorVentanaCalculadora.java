@@ -1,9 +1,6 @@
 
 package calculadora;
 
-
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -11,7 +8,6 @@ import javax.swing.JButton;
 public class ControladorVentanaCalculadora extends VentanaCalculadora {
 
  public class EscuchaNumero0 implements ActionListener{
-        @Override
         public void actionPerformed(ActionEvent ae) {
         pantalla.setText(pantalla.getText()+"0");                 
       }
@@ -67,41 +63,64 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
      }
    }
    public class EscuchaResta implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+      public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+"-");
      }
    }
+
+        
    public class EscuchaMultiplicacion implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+      public void actionPerformed(ActionEvent ae){
+         pantalla.setText(pantalla.getText()+"*");
+     }
+
+       
+   }
+   public class EscuchaDivision implements ActionListener{
+      public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+"*");
      }
    }
-   public class EscuchaDivision implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
-         pantalla.setText(pantalla.getText()+"/");
-     }
-   }
    public class EscuchaParentesisAbre implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+      public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+"(");
      }
    }
    public class EscuchaParentesisCierra implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+      public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+")");
      }
    }
    public class EscuchaPunto implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+     public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+".");
      }
+        
    }
    public class EscuchaEspacio implements ActionListener{
-     public void actionPerfomed(ActionEvent ae){
+      public void actionPerformed(ActionEvent ae){
          pantalla.setText(pantalla.getText()+" ");
      }
    }
- 
+ public class EscuchaIgual implements ActionListener{
+      public void actionPerformed(ActionEvent ae){
+         String infijo, postfijo;
+         double resp;
+         EvaluadorPostfijo e=new EvaluadorPostfijo();
+         InfixToPostfix e2=new InfixToPostfix();
+         
+         postfijo=e2.evaluate(pantalla.getText());//evaluate ==infix to postfix
+         try{
+             resp= e.EvaluacionPostfijo(postfijo);
+             pantalla.setText(""+resp);
+             
+         }catch(Unchecked c){
+             pantalla.setText("Error");
+         }
+     
+     } 
+      pantalla.setText("");   
+ }
  
  
  
@@ -109,7 +128,7 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
  //constructor controlador
  public ControladorVentanaCalculadora(){
      super();
-     Calculadora Calcu=new Calculadora("TI NSpire CX-CAS");
+     Calculadora Calcu=new Calculadora("T");
      boton0.addActionListener(new EscuchaNumero0());
      boton1.addActionListener(new EscuchaNumero1());
      boton2.addActionListener(new EscuchaNumero2());
@@ -120,7 +139,7 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
      boton7.addActionListener(new EscuchaNumero7());
      boton8.addActionListener(new EscuchaNumero8());
      boton9.addActionListener(new EscuchaNumero9());
-     botonSuma.addActionListener(new EscuchaSumar());
+     botonSuma.addActionListener(new EscuchaSuma());
      botonResta.addActionListener(new EscuchaResta());
      botonMultiplicacion.addActionListener(new EscuchaMultiplicacion());
      botonDivision.addActionListener(new EscuchaDivision());
@@ -128,6 +147,7 @@ public class ControladorVentanaCalculadora extends VentanaCalculadora {
      botonParentesisCierra.addActionListener(new EscuchaParentesisCierra());
      botonEspacio.addActionListener(new EscuchaEspacio());
      botonPunto.addActionListener(new EscuchaPunto());
+     botonIgual.addActionListener(new EscuchaIgual());
  }
 
     
